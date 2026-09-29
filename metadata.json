@@ -1,0 +1,6 @@
+{
+  "name": "India Trip Planner",
+  "description": "All-in-one India travel platform to discover 20+ destinations, plan day-by-day itineraries, compare hotels, book transport and attraction tickets, hire local guides, and calculate complete trip budgets in Indian Rupees (₹).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
