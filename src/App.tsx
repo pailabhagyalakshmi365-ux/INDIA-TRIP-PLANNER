@@ -57,6 +57,7 @@ import { BookingSummaryModal } from './components/BookingSummaryModal';
 import { MyTripsAndProfileSection } from './components/MyTripsAndProfileSection';
 import { AdminDashboard } from './components/AdminDashboard';
 import { GlobalSearchModal } from './components/GlobalSearchModal';
+import { N8nChatWidget } from './components/N8nChatWidget';
 
 const ALL_CATEGORIES: DestinationCategory[] = [
   'Historical Places',
@@ -1098,6 +1099,11 @@ export default function App() {
           const el = document.getElementById('tickets-guides');
           if (el) el.scrollIntoView({ behavior: 'smooth' });
         }}
+      />
+
+      <N8nChatWidget
+        language={language}
+        activeDestinationName={selectedDestination.name}
       />
     </div>
   );

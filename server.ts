@@ -82,6 +82,29 @@ async function startServer() {
     });
   });
 
+  app.post('/api/n8n-chat', async (req, res) => {
+    try {
+      const response = await fetch(
+        'https://bhagi13.app.n8n.cloud/webhook/d9c5063b-1c1b-439f-9f2e-f9dd4ceb25a5/chat',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json, text/plain, */*',
+          },
+          body: JSON.stringify(req.body),
+        }
+      );
+      const text = await response.text();
+      res.status(response.status).send(text);
+    } catch (err) {
+      res.status(502).json({
+        error: 'Failed to reach n8n webhook',
+        details: err instanceof Error ? err.message : String(err),
+      });
+    }
+  });
+
   if (process.env.NODE_ENV !== 'production') {
     const vite = await createViteServer({
       server: { middlewareMode: true, allowedHosts: true },
